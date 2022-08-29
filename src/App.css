@@ -17,6 +17,7 @@ ul {
   }
 
   .Cart{
-    justify-content: center;
+    justify-content: right;
     width: 0 auto;
+    background-color: red;
   }
