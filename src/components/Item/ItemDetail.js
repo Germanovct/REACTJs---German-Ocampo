@@ -14,7 +14,8 @@ const Item = ( {producto}) =>{
                     <small>2500 Opiniones / *****</small>
                     <p className="text-muted">Precio: {producto.precio}</p>
                     <br/>
-                    <FontAwesomeIcon icon={brands('twitter')} />
+                    <small>Category : {producto.category} </small>
+                    <br/>
                     <small>stock disponible: <strong>{producto.stock}</strong></small>
                     <p className="lead">{producto.desc}</p>
                     <a className="link-info ">Ver más</a>
