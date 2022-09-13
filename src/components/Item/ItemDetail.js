@@ -1,6 +1,33 @@
+import Counter from "../Counter"
+import ItenListContainer from "../itenListContainer"
+import { useState } from "react"
+import Select from "./Select/Select"
 
+
+const options = [ {
+    value: 'EP',
+    name: 'Extended Play'},
+    {
+        value: 'LP',
+        name: 'Long Play'
+    }
+
+] 
 
 const Item = ( {producto}) =>{
+
+
+    const [cantidad, setCantidad] = useState (1)
+
+    const handleAgregar = () =>{
+        const itemToCart = {
+            id: producto.id,
+            precio: producto.precio,
+            nombre: producto.nombre,
+            cantidad
+        }
+        console.log(itemToCart)
+    }
 
     return(
 
@@ -21,8 +48,17 @@ const Item = ( {producto}) =>{
                     <a className="link-info ">Ver más</a>
                     <br/>
                     <br/>
-                    
-                    <a className="btn btn-primary">ADD CART</a>
+                    <hr/>
+                    <Select options={options}/>
+                    <hr/>
+                    <Counter 
+                    max={producto.stock}
+                    counter={cantidad}
+                    setCounter= {setCantidad}
+                    handleAgregar= {handleAgregar}
+                    />
+                    <br/>
+
 
                     </div>
     )

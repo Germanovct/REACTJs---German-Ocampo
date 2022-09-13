@@ -24,7 +24,7 @@ const ItenListContainer = () => {
     pedirDatos() 
      .then( (res) => {
 
-        if (!categoryId){
+        if (categoryId === "todos"){
             setProductos(res)
         } else {
             setProductos( res.filter((prod) => prod.category === categoryId) )

@@ -1,40 +1,45 @@
 import { useState } from "react"
+import Item from "./Item/ItemDetail"
 
 
-const Contador = () => {
-
-    //let counter = 1
-    const [counter, setCounter] = useState (0)
+const Contador = ({max, counter, setCounter, handleAgregar}) => {
 
 
+    
 
-    const sumar = () => {
-  
-        setCounter(counter + 1)
 
-        console.log(counter)
+    const handleSumar = () => {
+        if (counter < max){
+            
+            setCounter(counter + 1)
+        }
+
+
+
 
     }
 
-    const restar = () => {
-        if(counter > 0){
+
+
+    const handleRestar = () => {
+        if(counter > 1){
         setCounter(counter - 1)}
 
         console.log(counter)
      }
 
     return(
-        <div className="container my-5">
-            <h2>Contador</h2>
+        <div >
             <hr/>
 
-            <button onClick={restar} className="btn btn-outline-primary">-</button>
+            <button onClick={handleRestar} className="btn btn-outline-primary">-</button>
             <span className="mx-2">{counter}</span>
-            <button onClick={sumar} className="btn btn-primary" >+</button>
+            <button onClick={handleSumar} className="btn btn-primary" >+</button>
             <br/>
             <br/>
-            <button type="button" class="btn btn-primary">AGREGAR AL CARRITO</button>
-            
+
+            <button onClick={handleAgregar} type="button" className="btn btn-success">AGREGAR AL CARRITO</button>
+            <br/>
         </div>
     )
 }
