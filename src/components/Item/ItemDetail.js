@@ -1,7 +1,9 @@
 import Counter from "../Counter"
 import ItenListContainer from "../itenListContainer"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Select from "./Select/Select"
+import { Link } from "react-router-dom"
+import { CartContext } from "../Context/CartContext"
 
 
 const options = [ {
@@ -16,6 +18,9 @@ const options = [ {
 
 const Item = ( {producto}) =>{
 
+    const {cart, addToCart, isInCart } = useContext(CartContext)
+    console.log (cart)
+
 
     const [cantidad, setCantidad] = useState (1)
 
@@ -26,7 +31,9 @@ const Item = ( {producto}) =>{
             nombre: producto.nombre,
             cantidad
         }
-        console.log(itemToCart)
+        //console.log(itemToCart)
+       
+        addToCart([...cart, itemToCart])
     }
 
     return(
@@ -51,13 +58,29 @@ const Item = ( {producto}) =>{
                     <hr/>
                     <Select options={options}/>
                     <hr/>
-                    <Counter 
-                    max={producto.stock}
-                    counter={cantidad}
-                    setCounter= {setCantidad}
-                    handleAgregar= {handleAgregar}
-                    />
-                    <br/>
+
+                    { isInCart(producto.id) && <p>Este producto ya esta agregado</p> }
+
+
+                    {
+                        isInCart(producto.id)
+                        ? <Link to="Cart" className="btn btn-success my-2">Terminar mi Compra</Link>
+                        : <Counter 
+                        max={producto.stock}
+                        counter={cantidad}
+                        setCounter= {setCantidad}
+                        handleAgregar= {handleAgregar}
+                        />
+
+
+
+                    }
+
+
+                    
+                    
+
+
 
 
                     </div>

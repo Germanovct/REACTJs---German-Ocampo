@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Item from "./Item/ItemDetail"
 
 
@@ -38,7 +39,7 @@ const Contador = ({max, counter, setCounter, handleAgregar}) => {
             <br/>
             <br/>
 
-            <button onClick={handleAgregar} type="button" className="btn btn-success">AGREGAR AL CARRITO</button>
+            <Link to="/cart" onClick={handleAgregar} type="button" className="btn btn-success">AGREGAR AL CARRITO</Link>
             <br/>
         </div>
     )
