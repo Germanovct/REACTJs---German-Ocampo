@@ -27,7 +27,7 @@ const App = () => {
   }
 
   const isInCart = (id) =>{
-    return cart.find((producto) => producto.id ===id)
+    return cart.some((producto) => producto.id ===id)
   }
 
   const cartQuantity =() =>{

@@ -6,13 +6,15 @@ import { Link } from "react-router-dom"
 import { CartContext } from "../Context/CartContext"
 
 
-const options = [ {
+const options = [ 
+    {
     value: 'EP',
-    name: 'Extended Play'},
+    text: 'Extended Play'
+    },
     {
         value: 'LP',
-        name: 'Long Play'
-    }
+        text: 'Long Play'
+    },
 
 ] 
 
@@ -31,8 +33,8 @@ const Item = ( {producto}) =>{
             nombre: producto.nombre,
             cantidad
         }
-        //console.log(itemToCart)
-       
+        
+        console.log(isInCart(producto.id))
         addToCart([...cart, itemToCart])
     }
 
@@ -53,37 +55,29 @@ const Item = ( {producto}) =>{
                     <small>stock disponible: <strong>{producto.stock}</strong></small>
                     <p className="lead">{producto.desc}</p>
                     <a className="link-info ">Ver más</a>
-                    <br/>
-                    <br/>
                     <hr/>
+
                     <Select options={options}/>
-                    <hr/>
+
+
+                   
+
 
                     { isInCart(producto.id) && <p>Este producto ya esta agregado</p> }
 
-
-                    {
-                        isInCart(producto.id)
-                        ? <Link to="Cart" className="btn btn-success my-2">Terminar mi Compra</Link>
-                        : <Counter 
-                        max={producto.stock}
-                        counter={cantidad}
-                        setCounter= {setCantidad}
-                        handleAgregar= {handleAgregar}
-                        />
-
-
-
+                    { isInCart(producto.id)
+                     ?<Link to="" className="btn btn-success my-2">Terminar mi Compra</Link>
+                     : <Counter 
+                    max={producto.stock}
+                    counter={cantidad}
+                    setCounter= {setCantidad}
+                    handleAgregar= {handleAgregar}
+                    />
+                     
+                    
                     }
-
-
                     
-                    
-
-
-
-
-                    </div>
+                     </div>
     )
     
 }

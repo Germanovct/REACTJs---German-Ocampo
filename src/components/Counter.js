@@ -46,3 +46,10 @@ const Contador = ({max, counter, setCounter, handleAgregar}) => {
 }
 
 export default Contador
+
+
+
+
+
+
+

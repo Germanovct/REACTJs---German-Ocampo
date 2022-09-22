@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../helpers/GetItem"
+
 import ItemList from "./itemList/ItemListContainer"
 import { useParams } from "react-router-dom"
-
-
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../Firebase/config"
 
 
 
@@ -20,23 +20,20 @@ const ItenListContainer = () => {
 
      useEffect(() => {
         setLoading(true)
-          
-    pedirDatos() 
-     .then( (res) => {
+        const productosRef = collection(db, 'productos')
+        getDocs(productosRef)
+           .then((resp) => {
+            const prod = resp.docs.map( (doc) => doc.data()  )
+            console.log (prod)
 
-        if (categoryId === "todos"){
-            setProductos(res)
-        } else {
-            setProductos( res.filter((prod) => prod.category === categoryId) )
+            setProductos(prod)
 
-        }
-         })
-         .catch ((error) => {
-            console.log(error)
-         })
-         .finally (() => {
+           })
+           .finally(() => {
             setLoading(false)
-         })
+           })
+
+   
 
          },[categoryId])
 
