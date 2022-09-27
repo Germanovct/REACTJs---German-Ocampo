@@ -13,6 +13,7 @@ import { MenuUnstyledContext } from '@mui/base';
 import { CartContext } from './components/Context/CartContext';
 import { useState } from 'react';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/Cart/Checkout/Checkuot';
 
 
 
@@ -51,7 +52,7 @@ const App = () => {
               <Route path='/' element={ <Home/> }/>
               <Route path='/productos/:categoryId' element={ <ItenListContainer/> }/>
               <Route path='/Cart' element = {<Cart/>} />
-
+              <Route path='/Checkout' element = {<Checkout/>} />
               <Route path='/nosotros' element={ <Nosotros/> }/>
               <Route path='/contacto' element={ <Contacto/> }/>
               <Route path='*' element={ <Error404/> } />

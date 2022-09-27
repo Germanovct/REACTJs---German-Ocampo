@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import { CartContext } from "../Context/CartContext"
 
 
@@ -7,7 +8,10 @@ const Cart= () => {
       const { cart } = useContext(CartContext)
 
       return(
-            <div className="container my-5">
+        <div className="container my-5">
+              <hr/>
+
+              <Link className="btn btn-success mx-3" to="/checkout">Terminar mi compra</Link>
               <h2>Tu carrito</h2>
 
               <hr/>
@@ -17,9 +21,6 @@ const Cart= () => {
 
                   <h3>{producto.nombre}</h3>
                   <p> Precio:{producto.precio}</p>
-                  <hr></hr>
-
-
                   </div>
               ))}
             </div>
