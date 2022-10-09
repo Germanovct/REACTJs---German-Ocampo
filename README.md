@@ -1,3 +1,10 @@
+### `VCT RECORDS`
+Sitio web (tipo e-commerce) de musica electronica , donde podes comprar musica en varios formatos , Digital - Vinilos - Cassettes
+Creado y diseñado por German Ocampo , para el sello discografico VCT 
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

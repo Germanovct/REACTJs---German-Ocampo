@@ -3,6 +3,7 @@ import { useState } from "react"
 
 
 
+
 const Checkout = () => {
 
     const [values, setValues] = useState({
@@ -12,6 +13,21 @@ const Checkout = () => {
     })
 
 
+   const handleNombre =(e)=>{
+    setValues({
+        email: values.email,
+        direccion: values.direccion,
+        nombre: e.target.value
+    })
+   }
+
+   const handleEmail =(e)=>{
+    setValues({
+        email: e.target.value,
+        direccion: values.direccion,
+        nombre: values.nombre
+    })
+   }
 
 
     const handleSubmit =(e) =>{
@@ -37,14 +53,14 @@ const Checkout = () => {
             <form onSubmit={handleSubmit} >
                 <input 
                 value={values.nombre}
-                
+                onChange={handleNombre}
                 type={ 'text'} 
                 className= "my-3 form-control" 
                 placeholder="Tu Nombre"
                 />
                 <input 
                 value={values.email}
-                
+                onChange={handleEmail}
                 type={ 'email'}
                 className= "my-3 form-control"
                 placeholder="Email"

@@ -28,6 +28,7 @@ const Nosotros = () => {
         <div className="container my-5">
             <h2 onClick={handleClick}>Nosotros</h2>
             <hr/>
+            
         </div>
 
 

@@ -9,7 +9,6 @@ import Nosotros from './components/Nosotros/Nosotros';
 import Contacto from './components/Contacto/Contacto';
 import Error404 from './components/Error404/Error404';
 import Home from './components/Home/Home';
-import { MenuUnstyledContext } from '@mui/base';
 import { CartContext } from './components/Context/CartContext';
 import { useState } from 'react';
 import Cart from './components/Cart/Cart';
